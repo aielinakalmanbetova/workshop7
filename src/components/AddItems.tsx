@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Props {
-  addToOrder: (item: string) => void;
+  addToOrder: (item: string, price: number) => void;
 }
 
 const AddItems: React.FC<Props> = ({ addToOrder }) => {
@@ -13,10 +13,11 @@ const AddItems: React.FC<Props> = ({ addToOrder }) => {
     { name: 'Обувь', price: 320 },
     { name: 'Свитшот', price: 190 },
     { name: 'Толстовка', price: 280 },
+
   ];
 
   const handleAddItem = (item: {name: string; price: number}) => {
-    addToOrder(`${item.name} price: ${item.price} $`)
+    addToOrder(`${item.name} price: ${item.price} $`, item.price);
   };
 
   return (
